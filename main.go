@@ -23,8 +23,14 @@ func main() {
 	//EG
 	createPerson()            //Still print out Richard, as we do not change original value
 	createPersonWithPointer() //This works
+
+	horse := new(Horse)
+	fmt.Println(horse.IsFast())
+	//Usig pointers with to create method reciever with object.
 }
 
+
+//Pointer Examples
 type person struct {
 	name string
 }
@@ -47,4 +53,14 @@ func createPersonWithPointer() {
 
 func renameWithPointer(p *person) {
 	p.name = "test"
+}
+
+
+//Method Reciever Example
+type Horse struct {
+	fast bool
+}
+
+func (h *Horse) IsFast() bool {
+	return h.fast
 }
